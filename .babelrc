@@ -1,0 +1,25 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage",
+                "corejs": "3",
+                "targets": {
+                    "ios": "9",
+                    "android": "4.4"
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "@lpink/utils",
+                "libraryDirectory": "dist",
+                "camel2DashComponentName": false
+            }
+        ]
+    ]
+}
