@@ -1,6 +1,6 @@
 {
 	"name": "@lpink/utils",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "js 方法库",
 	"main": "dist/index.js",
 	"author": "F",
