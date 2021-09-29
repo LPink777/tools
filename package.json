@@ -1,29 +1,61 @@
 {
-    "devDependencies": {
-        "@babel/core": "^7.15.5",
-        "@babel/preset-env": "^7.15.4",
-        "@rollup/plugin-babel": "^5.3.0",
-        "@rollup/plugin-commonjs": "^20.0.0",
-        "@rollup/plugin-node-resolve": "^13.0.4",
-        "babel-plugin-import": "^1.13.3",
-        "core-js": "^3.17.3",
-        "rollup-plugin-delete": "^2.0.0",
-        "rollup-plugin-livereload": "^2.0.5",
-        "rollup-plugin-serve": "^1.1.0",
-        "rollup-plugin-terser": "^7.0.2"
-    },
-    "name": "@lpink/utils",
-    "description": "javascript utils",
-    "version": "1.0.3",
-    "main": "dist/index.js",
-    "type": "module",
-    "scripts": {
-        "build": "rollup --config config/rollup.config.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {},
-    "repository": {
-        "access": "public"
-    }
+	"name": "@lpink/utils",
+	"version": "1.1.0",
+	"description": "js 方法库",
+	"main": "dist/index.js",
+	"author": "F",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LPink777/tools.git"
+	},
+	"license": "MIT",
+	"scripts": {
+		"start": "rollup --config config/rollup.config.dev.js -w",
+		"test": "jest --watch",
+		"coverage": "jest --coverage",
+		"build": "rollup --config config/rollup.config.js",
+		"eslint:fix": "eslint --fix --ext .js src",
+		"prettier:fix": "prettier --write src/**/*.js",
+		"lint:fix": "npm run prettier:fix && npm run eslint:fix",
+		"pre-commit": "lint-staged"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
+		"@rollup/plugin-babel": "^5.3.0",
+		"@rollup/plugin-commonjs": "^20.0.0",
+		"@rollup/plugin-eslint": "^8.0.1",
+		"@rollup/plugin-node-resolve": "^13.0.5",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^26.6.3",
+		"babel-loader": "^8.2.2",
+		"eslint": "^7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-babel": "^5.3.1",
+		"eslint-plugin-prettier": "^3.1.4",
+		"husky": "^7.0.2",
+		"jest": "^26.6.3",
+		"jest-cli": "^26.6.3",
+		"jest-useragent-mock": "^0.1.1",
+		"lint-staged": "^11.1.2",
+		"prettier": "^2.4.1",
+		"prettier-eslint": "^13.0.0",
+		"rollup": "^2.57.0",
+		"rollup-plugin-delete": "^2.0.0",
+		"rollup-plugin-livereload": "^2.0.5",
+		"rollup-plugin-serve": "^1.1.0",
+		"rollup-plugin-terser": "^7.0.2"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.js": [
+			"eslint --fix --ext .js src",
+			"prettier --write src/**/*.js",
+			"git add ."
+		]
+	}
 }

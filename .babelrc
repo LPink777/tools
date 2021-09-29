@@ -6,20 +6,19 @@
                 "useBuiltIns": "usage",
                 "corejs": "3",
                 "targets": {
-                    "ios": "9",
-                    "android": "4.4"
+                    "node": "current"
                 }
             }
         ]
     ],
     "plugins": [
-        [
-            "import",
-            {
-                "libraryName": "@lpink/utils",
-                "libraryDirectory": "dist",
-                "camel2DashComponentName": false
-            }
-        ]
+        // [
+        //     "import",
+        //     {
+        //         "libraryName": "@lpink/utils",
+        //         "libraryDirectory": "dist",
+        //         "camel2DashComponentName": false
+        //     }
+        // ]
     ]
 }

@@ -29,42 +29,42 @@ import isNil from "./isNil.js";
 // };
 
 const metaDataMap = (source, target, callback, _index, _parent) => {
-    if (!isPlainObject(target)) return target;
+	if (!isPlainObject(target)) return target;
 
-    return Object.entries(source).reduce((a, c) => {
-        const [k, v] = c;
+	return Object.entries(source).reduce((a, c) => {
+		const [k, v] = c;
 
-        const val = target[k];
+		const val = target[k];
 
-        if (!isNil(val)) {
-            if (Array.isArray(val)) {
-                a[k] = val.map((x, i) =>
-                    metaDataMap(
-                        isPlainObject(source[k][0]) ? source[k][0] : [],
-                        x,
-                        cb,
-                        i,
-                        val
-                    )
-                );
-            } else if (isPlainObject(val)) {
-                a[k] = metaDataMap(source[k], val, cb, k, target);
-            } else {
-                a[k] = val;
-            }
-        } else {
-            a[k] = v;
-            typeof callback == "function" &&
-                callback({
-                    key: k,
-                    target: target,
-                    index: _index,
-                    parent: _parent,
-                });
-        }
+		if (!isNil(val)) {
+			if (Array.isArray(val)) {
+				a[k] = val.map((x, i) =>
+					metaDataMap(
+						isPlainObject(source[k][0]) ? source[k][0] : [],
+						x,
+						callback,
+						i,
+						val
+					)
+				);
+			} else if (isPlainObject(val)) {
+				a[k] = metaDataMap(source[k], val, callback, k, target);
+			} else {
+				a[k] = val;
+			}
+		} else {
+			a[k] = v;
+			typeof callback == "function" &&
+				callback({
+					key: k,
+					target: target,
+					index: _index,
+					parent: _parent,
+				});
+		}
 
-        return a;
-    }, {});
+		return a;
+	}, {});
 };
 
 export default metaDataMap;

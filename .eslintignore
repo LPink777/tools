@@ -1,0 +1,5 @@
+node_modules/
+scripts/
+dist/
+jest.config.js
+src/**/*.test.js

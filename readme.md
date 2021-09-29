@@ -1,9 +1,7 @@
-# tools
+### 方法库
 
-### 方法合集
-
-* curry
 * compactObject
+* curry
 * deepGet
 * delay
 * flattenObject
@@ -12,6 +10,7 @@
 * isNil
 * isPlainObject
 * metaDataMap
+* requestIdleCallback
 
 ### rollup
 
